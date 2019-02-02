@@ -1,7 +1,8 @@
-# Fancy Clock Widget
-A clock widget without a widget background with some drop shadow so that it can display on both light and dark backgrounds with customizable fonts. 
+# Plasma Drydock
+ 
+A widget to start and stop docker containers in Plasma 5. 
 
-Now on the KDE Store!!!
-https://store.kde.org/p/1174881/
+Pull requests welcome!
 
-![ScreenShot](https://raw.githubusercontent.com/tjaart/plasma-fancy-clock/master/screenshots/plasma-default-wall.png)
+
+![ScreenShot](https://raw.githubusercontent.com/tjaart/plasma-drydock/master/screenshots/preview.gif)
