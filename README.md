@@ -4,6 +4,9 @@ A widget to start and stop docker containers in Plasma 5.
 
 Pull requests welcome!
 
+### NOW ON THE KDE STORE! ###
+https://store.kde.org/p/1369390/
+
 ## Dependencies
 
 - Docker must run in non root privileges on your machine.
