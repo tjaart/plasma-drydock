@@ -1,5 +1,5 @@
 /*
- * Copyright 2017  Tjaart Blignaut <tjaartblig@gmail.com>
+ * Copyright 2020  Tjaart Blignaut <tjaartblig@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -27,6 +27,8 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 Item {
     id: root
+    Layout.minimumWidth: 400
+    Layout.minimumHeight: 100
     
     property var waitingCommands: ({})
     
@@ -44,7 +46,8 @@ Item {
             dockerServices.clear()
             var list = JSON.parse(stdout)
             for(var i=0;i<list.length;i++) {
-                dockerServices.append(list[i] )
+                list[i].Name = list[i]["Names"][0].substring(1);
+                dockerServices.append(list[i])
             }
         }
         interval: 1000
@@ -68,6 +71,7 @@ Item {
         }
         signal exited(string sourceName, string stdout)
     }
+    
     function isBusy(containerId) {
         if (waitingCommands[containerId] === undefined) {
             return false;
@@ -77,8 +81,7 @@ Item {
      
     ColumnLayout {
         id: columns
-        width: 1000
-        spacing: 0;
+        spacing: 1;
         anchors.fill: parent;
         Layout.fillWidth: true
         Layout.fillHeight: true
@@ -97,18 +100,18 @@ Item {
                 model: dockerServices
                 spacing: 7
                 interactive: false
-                clip: true
+                clip: false
                 
                 delegate: RowLayout {
                     width: parent.width
-                    
+                  
                     PlasmaComponents.Label {
-                        id: containerImage
-                        text: model.Image
+                        id: containerName
+                        text: model[plasmoid.configuration.title]
+                        clip: false
                         Layout.fillWidth: true
                         Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
                     }
-                    
                     PlasmaComponents.Label {
                         id: containerState
                         text: model.Status
