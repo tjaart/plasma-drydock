@@ -17,7 +17,7 @@
 
 import QtQuick 2.2
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.14
+import QtQuick.Controls 2.12
 import org.kde.plasma.plasmoid 2.0
 import QtQml 2.0
 
