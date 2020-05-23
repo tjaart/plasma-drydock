@@ -1,5 +1,5 @@
 [Desktop Entry]
-Comment=docker start/stop control widged
+Comment=docker start/stop control widget
 Encoding=UTF-8
 Icon=utilities-terminal
 Name=Drydock
@@ -10,7 +10,7 @@ X-KDE-PluginInfo-Category=Development Tools
 X-KDE-PluginInfo-Email=tjaartblig@gmail.com
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-Name=org.kde.drydock
-X-KDE-PluginInfo-Version=1.2
+X-KDE-PluginInfo-Version=1.2.1
 X-KDE-PluginInfo-Website=plasma.kde.org
 X-KDE-ServiceTypes=Plasma/Applet
 X-Plasma-API=declarativeappletscript
