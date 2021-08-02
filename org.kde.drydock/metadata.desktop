@@ -1,7 +1,7 @@
 [Desktop Entry]
 Comment=docker start/stop control widget
 Encoding=UTF-8
-Icon=utilities-terminal
+Icon=docker
 Name=Drydock
 Type=Service
 X-KDE-ParentApp=

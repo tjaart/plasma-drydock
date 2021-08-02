@@ -35,6 +35,27 @@ Item {
     ListModel {
         id: dockerServices
     }
+
+    PlasmaCore.DataSource {
+		id: shell
+		engine: "executable"
+		connectedSources: []
+		onNewData: {
+			var exitCode = data["exit code"]
+			var exitStatus = data["exit status"]
+			var stdout = data["stdout"]
+			var stderr = data["stderr"]
+			exited(sourceName, exitCode, exitStatus, stdout, stderr)
+			disconnectSource(sourceName) // cmd finished
+		}
+
+		function runShell(containerId) {
+            var cmd = 'konsole -e "docker exec -it -u 0 '+containerId+' bash"';
+			connectSource(cmd);
+		}
+
+		signal exited(string cmd, int exitCode, int exitStatus, string stdout, string stderr)
+	}
    
     PlasmaCore.DataSource {
         id: executable
@@ -126,6 +147,14 @@ Item {
                         Layout.preferredWidth: units.iconSizes.small
                         running: true
                         visible: isBusy(model.Id)
+                    }
+
+                    PlasmaComponents.Button{
+                        enabled: !(isBusy(model.Id) || (model.State == "exited"))
+                        iconSource: "bash-symbolic"
+                        onClicked: function(){
+                            shell.runShell(model.Id)
+                        }
                     }
                     
                     PlasmaComponents.Button {
