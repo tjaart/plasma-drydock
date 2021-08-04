@@ -151,7 +151,7 @@ Item {
 
                     PlasmaComponents.Button{
                         enabled: !(isBusy(model.Id) || (model.State == "exited"))
-                        iconSource: "bash-symbolic"
+                        iconSource: "utilities-terminal"
                         onClicked: function(){
                             shell.runShell(model.Id)
                         }
